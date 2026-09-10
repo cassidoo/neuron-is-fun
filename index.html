@@ -1,12 +1,71 @@
-<html>
-  <head>
-    <title>Hello world!</title>
-  </head>
-  <body>
-    <h1>This is a fun website!</h1>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Hello world! (mind the cats)</title>
+		<meta
+			name="description"
+			content="Cassidy's tiny corner of the internet, guarded by floating cats."
+		/>
+		<link rel="stylesheet" href="styles.css" />
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>"
+		/>
+	</head>
+	<body>
+		<div class="shake-root" id="shakeRoot">
+			<main class="page" id="page">
+				<section class="card" data-debris>
+					<h1>Hello world!</h1>
+					<p>
+						My name is Cassidy, and I'm
+						<a href="https://www.youtube.com/watch?v=2HFkVtDZrf0"
+							>on a livestream</a
+						>
+						right now! Ha ha!
+					</p>
+					<p>
+						If you want to learn more about me, you can
+						<a href="https://cassidoo.co">go to my personal website</a>!
+					</p>
+				</section>
 
-    <!-- This is a secret part that the computers cannot read -->
+				<section class="card" data-debris>
+					<h2>🐈 Don't Touch The Cats</h2>
+					<p>
+						Cats are drifting around this page. If one bumps into your cursor,
+						the whole website explodes. Survive as long as you can.
+					</p>
+					<p class="hint" id="hint">Move your mouse to start.</p>
+				</section>
+			</main>
 
-    <p>Wow I am having a blast</p>
-  </body>
+			<div class="cat-layer" id="catLayer" aria-hidden="true"></div>
+			<canvas class="particles" id="particles" aria-hidden="true"></canvas>
+		</div>
+
+		<div class="hud" id="hud">
+			<span class="hud-item">⏱ <strong id="timer">0.00</strong>s</span>
+			<span class="hud-item">🏆 <strong id="best">0.00</strong>s</span>
+			<span class="hud-item">🐱 <strong id="catCount">1</strong></span>
+		</div>
+
+		<div class="banner" id="banner" role="status" aria-live="polite"></div>
+
+		<div class="overlay" id="overlay" hidden>
+			<div class="overlay-box" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+				<h2 id="overlayTitle">💥 BOOM</h2>
+				<p>A cat found your cursor and the website did not survive.</p>
+				<p class="score-line">
+					You lasted <strong id="finalTime">0.00</strong>s ·
+					best <strong id="finalBest">0.00</strong>s
+				</p>
+				<button type="button" id="restart">Try again</button>
+			</div>
+		</div>
+
+		<script src="game.js" defer></script>
+	</body>
 </html>
